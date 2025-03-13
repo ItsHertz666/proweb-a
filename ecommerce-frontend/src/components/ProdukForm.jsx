@@ -42,6 +42,8 @@ function ProdukForm({ onProductAdded }) {
             name="nama"
             value={formData.nama}
             onChange={handleChange}
+            placeholder="Nama Produk tidak boleh kosong"
+            className="border rounded w-full py-2 px-3"
             required
           />
         </div>
@@ -53,6 +55,8 @@ function ProdukForm({ onProductAdded }) {
             name="harga"
             value={formData.harga}
             onChange={handleChange}
+            placeholder="Harga tidak boleh kosong"
+            className="border rounded w-full py-2 px-3"
             required
           />
         </div>
