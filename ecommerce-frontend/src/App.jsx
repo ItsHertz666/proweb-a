@@ -1,12 +1,18 @@
 // src/App.jsx
 import React from 'react';
 import ProdukList from './components/ProdukList';
+import ProdukForm from './components/ProdukForm';
 
 function App() {
   return (
     <div>
-      <h1>Selamat Datang di Aplikasi E-Commerce Sederhana</h1>
-      <ProdukList />
+      <header className="header">
+        <h1>E-Commerce Sederhana</h1>
+      </header>
+      <div className="container">
+        <ProdukForm />
+        <ProdukList />
+      </div>
     </div>
   );
 }

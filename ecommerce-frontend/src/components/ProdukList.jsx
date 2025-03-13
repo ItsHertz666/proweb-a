@@ -1,27 +1,32 @@
-// src/components/ProdukList.jsx
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function ProdukList() {
-  const [produk, setProduk] = useState([]);
+    const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    // Data statis sementara
-    setProduk([
-      { id: 1, nama: 'Produk A' },
-      { id: 2, nama: 'Produk B' },
-    ]);
-  }, []);
+    useEffect(() => {
+        fetchProducts();
+    }, []);
 
-  return (
-    <div>
-      <h2>Daftar Produk</h2>
-      <ul>
-        {produk.map((item) => (
-          <li key={item.id}>{item.nama}</li>
-        ))}
-      </ul>
-    </div>
-  );
+    const fetchProducts = async () => {
+        try {
+            const response = await axios.get('http://localhost:3001/produk');
+            setProducts(response.data);
+        } catch (error) {
+            console.error('Error fetching products:', error);
+        }
+    };
+
+    return (
+        <div className="products-grid">
+            {products.map((product) => (
+                <div key={product.id} className="product-card">
+                    <h3>{product.nama}</h3>
+                    <p className="price">Rp {parseInt(product.harga).toLocaleString('id-ID')}</p>
+                </div>
+            ))}
+        </div>
+    );
 }
 
 export default ProdukList;
