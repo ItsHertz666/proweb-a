@@ -31,12 +31,21 @@ Sebelum menjalankan aplikasi, pastikan telah terinstall:
 #### Installation and Usage
 
 > Install Dependensi:
+```
+npm install
+```
 
 > Running the Backend Application:
+```
+node index.js
+```
 
 Server akan berjalan pada http://localhost:3001
 
 > Running the Frontend Application:
+```
+npm run dev
+```
 
 Server akan berjalan pada http://localhost:5173/
 
